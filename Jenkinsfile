@@ -6,14 +6,14 @@ pipeline {
                 sh'''
                 pwd
                 rm -rf *
-                git clone ""
+                git clone "https://github.com/banawathbalajinaik/google.com.git"
                 '''
             }
         }
         stage('clean') { 
             steps {
                 sh'''
-                cd mavenproject_6
+                cd google.com
                 mvn clean
                 '''
             }
@@ -21,7 +21,7 @@ pipeline {
         stage('compile') { 
             steps {
                 sh'''
-                cd mavenproject_6
+                cd google.com
                 mvn compile
                 '''
             }
@@ -29,7 +29,7 @@ pipeline {
         stage('test') { 
             steps {
                 sh'''
-                cd mavenproject_6
+                cd google.com
                 mvn test
                 '''
             }
@@ -37,7 +37,7 @@ pipeline {
         stage('sonarqube test') { 
             steps {
                 sh'''
-                cd mavenproject_6
+                cd google.com
                 mvn sonar:sonar
                 '''
             }
